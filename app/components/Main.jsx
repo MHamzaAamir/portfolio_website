@@ -143,8 +143,9 @@ const Main = ({ ai, programming, websites, skills }) => {
             gsap.from(card, {
                 scrollTrigger: {
                     trigger: card,
-                    toggleActions: "play none none reset",
+                    toggleActions: "play none none reverse",
                     // markers: true,
+                    start:"center bottom"
 
                 },
 
@@ -180,17 +181,6 @@ const Main = ({ ai, programming, websites, skills }) => {
             },
             stagger: 1,
             opacity: 0,
-        })
-
-        gsap.from(".slide", {
-            scrollTrigger: {
-                trigger: ".slide-container",
-                scrub: true,
-                // markers:true,
-                pin: true,
-                end: "+=2000"
-            },
-            xPercent: -100
         })
 
     })
