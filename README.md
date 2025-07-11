@@ -10,9 +10,18 @@ This is my personal portfolio website built with [Next.js](https://nextjs.org) a
 - **Smooth Animations:** Powered entirely by GSAP for seamless user interaction.
 - **API Endpoints:** For managing projects, skills, contact form, and admin authentication.
 
+## Landing Page
+![Landing Page Screenshot](readme_Images/landingPage.png)
+
+## Admin Login Page
+![Login Page](readme_Images/loginPage.png)
+
+## Dashboard Page
+![Dashboard Page](readme_Images/dashboardPage.png)
+
 ## Live Demo
 
-> [Add your live link here!](https://your-vercel-deployment-url.com)
+> [View Live](https://your-vercel-deployment-url.com)
 
 This site is deployed on [Vercel](https://vercel.com/), ensuring fast and reliable delivery.
 
