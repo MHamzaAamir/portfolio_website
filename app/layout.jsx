@@ -16,6 +16,12 @@ export const metadata = {
   title: "Hamza's Portfolio",
   description: "My portfolio website for showcasing my projects, skills, etc",
 };
+<link
+  rel="icon"
+  href="/icon?<generated>"
+  type="image/<generated>"
+  sizes="<generated>"
+/>
 
 export default function RootLayout({ children }) {
   return (
