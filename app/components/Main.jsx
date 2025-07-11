@@ -2,21 +2,42 @@
 import gsap from 'gsap'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import { SplitText, ScrollTrigger } from 'gsap/all'
-import skills from '@/data/skill'
-import ai from '@/data/ai'
-import programming from '@/data/programming'
-import websites from '@/data/websites'
+
 
 
 
 
 gsap.registerPlugin(SplitText, ScrollTrigger)
 
-const Main = () => {
+const Main = ({ ai, programming, websites, skills }) => {
     const [selectedWork, updateSelectedWork] = useState({ works: ai, link: "ai" })
+    const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" })
+    const [popup, setPopup] = useState("")
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setContactForm({name:"",email:"",message:""})
+        const res = await fetch("/api/contact", {
+            method: "POST",
+            body: JSON.stringify(contactForm)
+        })
+
+
+
+        if (res.ok) {
+            setPopup("Message Sent")
+        } else {
+            setPopup("An Error Occurred")
+        }
+
+        setTimeout(() => {
+            setPopup("")
+        }, 3000);
+
+    }
 
     const handleChangeWork = (work) => {
         updateSelectedWork(work)
@@ -30,7 +51,6 @@ const Main = () => {
     }
 
     useGSAP(() => {
-        // Navbar In Animation
 
         // Main Heading Animation
 
@@ -188,7 +208,7 @@ const Main = () => {
                                 <Link href={"https://www.linkedin.com/in/hamzaaamirDev"} target='_blank' className="py-1 px-2 cursor-pointer hover:scale-110 duration-200">Linkedin</Link>
                                 <Link href={"https://www.github.com/MHamzaAamir"} target='_blank' className="py-1 px-2 cursor-pointer hover:scale-110 duration-200">Github</Link>
                             </div>
-                            <button className='nav-item py-1 px-2 rounded-[10px] block md:hidden text-white bg-[#393632] cursor-pointer'>Contact</button>
+                            <Link href={"#contact"} className='nav-item py-1 px-2 rounded-[10px] block md:hidden text-white bg-[#393632] cursor-pointer'>Contact</Link>
                         </div>
                         <div className='flex flex-col'>
                             <div className='make_opaque split-heading w-full text-[70px] sm:text-[80px] md:text-[105px] lg:text-[140px] xl:text-[180px] font-bold text-center text-[#171717]'>HAMZA AAMIR</div>
@@ -202,7 +222,7 @@ const Main = () => {
                     <div className='w-full h-1/2 flex items-center justify-center md:justify-between px-10'>
                         <div className='hidden make_opaque md:flex max-w-[400px] w-1/3 text-3xl lg:text-4xl flex-col gap-4 text-[#6B645C]'>
                             <div>AI Engineer | Full Stack Developer</div>
-                            <button className='py-2 px-3 rounded-2xl text-white bg-[#393632] cursor-pointer hover:scale-105 duration-200'>Contact</button>
+                            <Link href={"#contact"} className='py-2 px-3 rounded-2xl text-white text-center bg-[#393632] cursor-pointer hover:scale-105 duration-200'>Contact</Link>
 
                         </div>
 
@@ -235,15 +255,16 @@ const Main = () => {
                             {
                                 selectedWork.works.map((work, i) => (
                                     <div key={i} className='w-full flex flex-row justify-between items-center'>
-                                        <div className={`w-[40%] ${(i % 2 == 0) ? "hidden md:block" : "hidden md:hidden"}`}>
+                                        <div className={`w-[45%] ${(i % 2 == 0) ? "hidden md:block" : "hidden md:hidden"}`}>
                                             <div className='md:text-[150px] lg:text-[250px] text-[#D1D1C7] text-center'>0{i + 1}</div>
                                         </div>
 
-                                        <div className={`project-card md:w-[60%] rounded-3xl outline-1 outline-[#D1D1C7] text-[#D1D1C7] px-5 py-5 flex flex-col gap-2`}>
+                                        <div className={`project-card cursor-default md:w-[55%] rounded-3xl outline-1 outline-[#D1D1C7] text-[#D1D1C7] px-5 py-5 flex flex-col gap-3`}>
                                             <div className='text-2xl lg:text-5xl text-center px-2 py-2'>{work.name}</div>
                                             <div className='text-sm lg:text-base p-2 text-justify'>{work.description}</div>
+                                            <Link href={work.link} className='w-full cursor-pointer hover:bg-white bg-[#D1D1C7] text-black rounded-xl py-2 text-center'>Visit Repository</Link>
                                         </div>
-                                        <div className={`w-[40%] ${(i % 2 == 0) ? "hidden md:hidden" : "hidden md:block"}`}>
+                                        <div className={`w-[45%] ${(i % 2 == 0) ? "hidden md:hidden" : "hidden md:block"}`}>
                                             <div className='md:text-[150px] lg:text-[250px] text-[#D1D1C7] text-center'>0{i + 1}</div>
                                         </div>
 
@@ -277,18 +298,23 @@ const Main = () => {
                 <div className='motivation-elements text-3xl sm:text-5xl md:text-6xl lg:text-7xl '>IT</div>
                 <div className='motivation-elements text-3xl sm:text-5xl md:text-6xl lg:text-7xl '>HAPPEN</div>
             </div>
-            <div className='py-20 px-5 w-screen flex flex-col justify-center items-center'>
-                <div className='py-20 px-5 w-full rounded-4xl bg-black flex flex-col items-center gap-10'>
+            <div id="contact" className='py-20 px-5 w-screen flex flex-col justify-center items-center'>
+                <div className='py-20 px-5 w-full rounded-4xl bg-[#171717] flex flex-col items-center gap-10'>
                     <div className='text-[#D1D1C7] text-5xl md:text-8xl text-center'>Drop A Message</div>
-                    <form className='w-[95%] max-w-[500px] p-5 flex flex-col gap-5 bg-[#22211E] outline-1 outline-[#373633] rounded-3xl'>
-                        <input className='bg-[#302F2D] py-3 px-3 rounded-2xl outline-1 outline-[#454442]' type='text' placeholder='Your Name' />
-                        <input className='bg-[#302F2D] py-3 px-3 rounded-2xl outline-1 outline-[#454442]' type='email' placeholder='Your Email' />
-                        <textarea className='bg-[#302F2D] rounded-2xl resize-none py-3 px-3 outline-1 outline-[#454442]' rows={5} placeholder='Your Message' />
+                    <form onSubmit={handleSubmit} className='w-[95%] max-w-[500px] p-5 flex flex-col gap-5 bg-[#22211E] outline-1 outline-[#373633] rounded-3xl'>
+                        <input required value={contactForm.name} onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })} className='bg-[#302F2D] py-3 px-3 rounded-2xl outline-1 outline-[#454442]' type='text' placeholder='Your Name' />
+                        <input required value={contactForm.email} onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })} className='bg-[#302F2D] py-3 px-3 rounded-2xl outline-1 outline-[#454442]' type='email' placeholder='Your Email' />
+                        <textarea required value={contactForm.message} onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })} className='bg-[#302F2D] rounded-2xl resize-none py-3 px-3 outline-1 outline-[#454442]' rows={5} placeholder='Your Message' />
                         <button className='text-black bg-[#D1D1C7] cursor-pointer py-3 px-2 rounded-2xl hover:scale-105 duration-200'>Send Message</button>
                     </form>
                     <div className='text-[#D1D1C7] text-5xl md:text-8xl text-center'></div>
                 </div>
             </div>
+            {(popup)&&(
+                <div className='py-2 px-10 min-w-[200px] fixed top-10 left-1/2 -translate-x-[50%] rounded-xl bg-[#393632] text-white'>
+                    <div className='text-center'>{popup}</div>
+                </div>
+            )}
         </>
 
     )
