@@ -40,6 +40,7 @@ const Main = ({ ai, programming, websites, skills }) => {
     }
 
     const handleChangeWork = (work) => {
+
         updateSelectedWork(work)
         if (work == "AI") {
             updateSelectedWork({ works: ai, link: "ai" })
@@ -48,6 +49,7 @@ const Main = ({ ai, programming, websites, skills }) => {
         } else {
             updateSelectedWork({ works: programming, link: "programming" })
         }
+        ScrollTrigger.refresh(true)
     }
 
     useGSAP(() => {
