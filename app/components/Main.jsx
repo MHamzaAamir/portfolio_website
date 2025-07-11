@@ -264,7 +264,7 @@ const Main = ({ ai, programming, websites, skills }) => {
                                         <div className={`project-card cursor-default md:w-[55%] rounded-3xl outline-1 outline-[#D1D1C7] text-[#D1D1C7] px-5 py-5 flex flex-col gap-3`}>
                                             <div className='text-2xl lg:text-5xl text-center px-2 py-2'>{work.name}</div>
                                             <div className='text-sm lg:text-base p-2 text-justify'>{work.description}</div>
-                                            <Link href={work.link} className='w-full cursor-pointer hover:bg-white bg-[#D1D1C7] text-black rounded-xl py-2 text-center'>Visit Repository</Link>
+                                            <Link href={work.link} target='_blank' className='w-full cursor-pointer hover:bg-white bg-[#D1D1C7] text-black rounded-xl py-2 text-center'>Visit Repository</Link>
                                         </div>
                                         <div className={`w-[45%] ${(i % 2 == 0) ? "hidden md:hidden" : "hidden md:block"}`}>
                                             <div className='md:text-[150px] lg:text-[250px] text-[#D1D1C7] text-center'>0{i + 1}</div>
