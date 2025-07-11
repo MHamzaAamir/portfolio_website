@@ -21,7 +21,7 @@ This is my personal portfolio website built with [Next.js](https://nextjs.org) a
 
 ## Live Demo
 
-> [View Live](https://your-vercel-deployment-url.com)
+> [View Live](https://mhamzaaamir.vercel.app)
 
 This site is deployed on [Vercel](https://vercel.com/), ensuring fast and reliable delivery.
 
