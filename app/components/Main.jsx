@@ -19,7 +19,7 @@ const Main = ({ ai, programming, websites, skills }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setContactForm({name:"",email:"",message:""})
+        setContactForm({ name: "", email: "", message: "" })
         const res = await fetch("/api/contact", {
             method: "POST",
             body: JSON.stringify(contactForm)
@@ -39,17 +39,23 @@ const Main = ({ ai, programming, websites, skills }) => {
 
     }
 
-    const handleChangeWork = (work) => {
+    const handleChangeWork = async (work) => {
 
-        updateSelectedWork(work)
-        if (work == "AI") {
-            updateSelectedWork({ works: ai, link: "ai" })
-        } else if (work == "Websites") {
-            updateSelectedWork({ works: websites, link: "websites" })
-        } else {
-            updateSelectedWork({ works: programming, link: "programming" })
+        const changeWork = () => {
+            updateSelectedWork(work)
+            if (work == "AI") {
+                updateSelectedWork({ works: ai, link: "ai" })
+            } else if (work == "Websites") {
+                updateSelectedWork({ works: websites, link: "websites" })
+            } else {
+                updateSelectedWork({ works: programming, link: "programming" })
+            }
         }
-        ScrollTrigger.refresh(true)
+
+
+        await changeWork()
+        ScrollTrigger.refresh()
+
     }
 
     useGSAP(() => {
@@ -145,7 +151,7 @@ const Main = ({ ai, programming, websites, skills }) => {
                     trigger: card,
                     toggleActions: "play none none reverse",
                     // markers: true,
-                    start:"center bottom"
+                    start: "center bottom"
 
                 },
 
@@ -302,7 +308,7 @@ const Main = ({ ai, programming, websites, skills }) => {
                     <div className='text-[#D1D1C7] text-5xl md:text-8xl text-center'></div>
                 </div>
             </div>
-            {(popup)&&(
+            {(popup) && (
                 <div className='py-2 px-10 min-w-[200px] fixed top-10 left-1/2 -translate-x-[50%] rounded-xl bg-[#393632] text-white'>
                     <div className='text-center'>{popup}</div>
                 </div>
