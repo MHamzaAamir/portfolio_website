@@ -16,6 +16,7 @@ export default async function Home() {
       name:work.name,
       description:work.description,
       link:work.link,
+      liveLink:work.liveLink,
       category:work.category
     }
   ))

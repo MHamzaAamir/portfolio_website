@@ -29,17 +29,19 @@ export async function DELETE(req) {
 
 export async function PATCH(req) {
   try {
+    await verifyAuth();
     await dbConnect()
-    const { id, name, description, link, category } = await req.json()
+    const { id, name, description, link, category,liveLink } = await req.json()
 
     const res = await Work.findByIdAndUpdate(id,{
       name,
       description,
       link,
+      liveLink,
       category
     })
 
-    return NextResponse.json({ id, name, description, link, category })
+    return NextResponse.json({ _id:id, name, description, link,liveLink, category })
 
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 400 })
@@ -51,12 +53,12 @@ export async function PATCH(req) {
 // POST new work
 export async function POST(req) {
   try {
-    // await verifyAuth();
+    await verifyAuth();
     await dbConnect();
 
-    const { name, description, link, category } = await req.json();
+    const { name, description, link, category,liveLink } = await req.json();
 
-    const work = await Work.create({ name, description, link, category });
+    const work = await Work.create({ name, description, link, category,liveLink });
 
     return NextResponse.json({ work, message: 'created' });
   } catch (error) {

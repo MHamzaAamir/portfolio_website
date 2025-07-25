@@ -4,6 +4,7 @@ const WorkSchema = new mongoose.Schema({
   name: String,
   description: String, 
   link:String,
+  liveLink:String,
   category:{
     type:String,
     enum:["AI","Website","Programming"]
