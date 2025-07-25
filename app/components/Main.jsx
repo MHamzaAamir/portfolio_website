@@ -264,8 +264,8 @@ const Main = ({ ai, programming, websites, skills }) => {
                                                 {
                                                     work.liveLink ? (
                                                         <>
-                                                            <Link href={work.link} target='_blank' className='w-2/3 cursor-pointer hover:bg-white bg-[#D1D1C7] text-black rounded-xl py-2 text-center'>Visit Repository</Link>
-                                                            <Link href={work.liveLink} target='_blank' className='w-1/3 cursor-pointer hover:bg-white bg-[#D1D1C7] text-black rounded-xl py-2 text-center'>View Live</Link>
+                                                            <Link href={work.link} target='_blank' className='w-3/5 sm:w-2/3 cursor-pointer hover:bg-white bg-[#D1D1C7] text-black rounded-xl py-2 text-center'>Visit Repository</Link>
+                                                            <Link href={work.liveLink} target='_blank' className='w-2/5 sm:w-1/3 cursor-pointer hover:bg-white bg-[#D1D1C7] text-black rounded-xl py-2 text-center'>View Live</Link>
                                                         </>
                                                     ) : (
                                                         <Link href={work.link} target='_blank' className='w-full cursor-pointer hover:bg-white bg-[#D1D1C7] text-black rounded-xl py-2 text-center'>Visit Repository</Link>
