@@ -205,6 +205,7 @@ const Main = ({ ai, programming, websites, skills }) => {
                             <div className="nav-item flex">
                                 <Link href={"https://www.linkedin.com/in/hamzaaamirDev"} target='_blank' className="py-1 px-2 cursor-pointer hover:scale-110 duration-200">Linkedin</Link>
                                 <Link href={"https://www.github.com/MHamzaAamir"} target='_blank' className="py-1 px-2 cursor-pointer hover:scale-110 duration-200">Github</Link>
+                                <Link href={"https://medium.com/@MHamzaAamir"} target='_blank' className="py-1 px-2 cursor-pointer hover:scale-110 duration-200">Medium</Link>
                             </div>
                             <Link href={"#contact"} className='nav-item py-1 px-2 rounded-[10px] block md:hidden text-white bg-[#393632] cursor-pointer'>Contact</Link>
                         </div>
