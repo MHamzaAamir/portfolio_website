@@ -200,7 +200,7 @@ const Main = ({ ai, programming, websites, skills }) => {
             <div className='hero-container flex justify-center'>
                 <div className='min-h-screen w-screen max-w-[1500px] bg-[#E8E8E3] flex flex-col justify-between'>
                     <div className='flex flex-col w-full justify-between h-1/2'>
-                        <div className="navbar h-20 w-full px-10 flex justify-between items-center text-[#6B645C]">
+                        <div className="navbar h-20 w-full px-10 flex justify-between items-center text-[#6B645C] text-sm md:text-base">
                             <div className='nav-item hidden md:block'>Computer Scientist</div>
                             <div className="nav-item flex">
                                 <Link href={"https://www.linkedin.com/in/hamzaaamirDev"} target='_blank' className="py-1 px-2 cursor-pointer hover:scale-110 duration-200">Linkedin</Link>
