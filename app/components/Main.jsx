@@ -218,17 +218,16 @@ const Main = ({ ai, programming, websites, skills }) => {
                         </div>
 
                     </div>
-                    <div className='w-full h-1/2 flex items-center justify-center md:justify-between px-10'>
-                        <div className='hidden make_opaque md:flex max-w-[400px] w-1/3 text-3xl lg:text-4xl flex-col gap-4 text-[#6B645C]'>
+                    <div className='w-full h-1/2 flex items-end justify-center md:justify-between px-10'>
+                        <div className='mb-16 hidden make_opaque md:flex max-w-[400px] w-1/3 text-3xl lg:text-4xl flex-col gap-6 text-[#6B645C]'>
                             <div>AI Engineer | Full Stack Developer</div>
                             <Link href={"#contact"} className='py-2 px-3 rounded-2xl text-white text-center bg-[#393632] cursor-pointer hover:scale-105 duration-200'>Contact</Link>
-
                         </div>
 
-                        <Image className='max-h-full make_opaque self-end' width={230} height={100} alt='Hamza Image' src={"/Hamza_svg.svg"} />
+                        <Image className='max-h-full make_opaque' width={230} height={100} alt='Hamza Image' src={"/Hamza_svg.svg"} />
 
-                        <div className='hidden md:block make_opaque max-w-[400px] w-1/3 text-3xl lg:text-4xl text-[#6B645C] text-end'>
-                            Open to Work. Always Learning Always Building
+                        <div className='mb-20 hidden make_opaque md:flex max-w-[400px] w-1/3 text-3xl lg:text-4xl flex-col gap-6 text-[#6B645C] capitalize'>
+                            <div>Open to Work. Always Building. Always Learning</div>
                         </div>
                     </div>
                 </div>
