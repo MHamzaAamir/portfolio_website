@@ -226,7 +226,7 @@ const Main = ({ ai, programming, websites, skills }) => {
 
                         <Image className='max-h-full make_opaque' width={230} height={100} alt='Hamza Image' src={"/Hamza_svg.svg"} />
 
-                        <div className='mb-20 hidden make_opaque md:flex max-w-[400px] w-1/3 text-3xl lg:text-4xl flex-col gap-6 text-[#6B645C] capitalize'>
+                        <div className='mb-20 hidden make_opaque md:flex max-w-[400px] w-1/3 text-3xl lg:text-4xl flex-col gap-6 text-[#6B645C] capitalize text-end'>
                             <div>Open to Work. Always Building. Always Learning</div>
                         </div>
                     </div>
