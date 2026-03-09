@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic";
 import Main from "./components/Main";
 import dbConnect from "@/lib/mongodb";
 import Work from "@/models/Work";
