@@ -5,9 +5,13 @@ import { verifyAuth } from '@/lib/auth';
 
 // GET all skill categories
 export async function GET() {
-  await dbConnect();
-  const skills = await Skill.find({});
-  return NextResponse.json({ skills });
+  try{
+    await dbConnect();
+    const skills = await Skill.find({});
+    return NextResponse.json({ skills });
+  }catch(error){
+    return NextResponse.json({ error: error.message }, { status: 400 });
+  }
 }
 
 // POST a new skill category

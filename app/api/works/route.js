@@ -5,10 +5,13 @@ import { verifyAuth } from '@/lib/auth';
 
 // GET all works
 export async function GET() {
-  await dbConnect();
-
-  const works = await Work.find({});
-  return NextResponse.json({ works });
+  try{
+    await dbConnect();
+    const works = await Work.find({});
+    return NextResponse.json({ works });
+  }catch(error){
+    return NextResponse.json({ error: error.message }, { status: 400 });
+  }
 }
 
 // DELETE a work by ID
