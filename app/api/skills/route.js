@@ -8,6 +8,7 @@ export async function GET() {
   try{
     await dbConnect();
     const skills = await Skill.find({});
+    console.log("Fetched Skills")
     return NextResponse.json({ skills });
   }catch(error){
     return NextResponse.json({ error: error.message }, { status: 400 });
